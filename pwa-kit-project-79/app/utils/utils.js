@@ -14,6 +14,11 @@ import {getConfig} from 'pwa-kit-runtime/utils/ssr-config'
  * https://developers.google.com/web/updates/2015/08/using-requestidlecallback
  * http://caniuse.com/#feat=requestidlecallback
  */
+export const pluckIds = (arrayIn, idProperty) => {
+    // Yep, inspired by https://underscorejs.org/#pluck
+    return arrayIn.map((iterator) => iterator[idProperty]).toString()
+}
+
 export const requestIdleCallback = (fn) => {
     if ('requestIdleCallback' in window) {
         return window.requestIdleCallback(fn)
